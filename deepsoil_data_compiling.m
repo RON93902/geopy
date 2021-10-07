@@ -52,23 +52,7 @@ n = length(FILE);
 %   [A, DESCR, FORMAT] = xlsfinfo(char(FILE(1)))
 
 %   Extract data of interest in a bunch of DEEPSOIL ouput spreadsheet
-for i = 1:n
-    if i == 1
-        %   Extract surface PSA
-        table1 = readtable(char(FILE(i)),'Sheet','Layer 1');
-        %   Extract max.strain profile
-        table2 = readtable(char(FILE(i)),'Sheet','Profile');
-        Period = table1(1:113,9);
-        Depth = table2(1:46,10);
-        Surface_PSA(:,i) = table1(1:113,10);
-        Max_Strain(:,i) = table2(1:46,11);
-    else
-        table1 = readtable(char(FILE(i)),'Sheet','Layer 1');
-        table2 = readtable(char(FILE(i)),'Sheet','Profile');
-        Surface_PSA(:,i) = table1(1:113,10);
-        Max_Strain(:,i) = table2(1:46,11);
-    end
-end
+
 
 % Arrange data and write it out as .csv, so that .csv can be copied and
 % pasted into the SRA template
