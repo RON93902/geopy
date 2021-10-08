@@ -9,50 +9,50 @@ and returns the angle and associated values for the case with the lowest compute
 safety factor. 
 
 Parameters
-        ----------
-            phi : float
-                - effective friction angle (degrees)
-            c : float
-                - cohesion (kPa)
-            PGA : float
-                - peak ground acceleration (g)
-            gamma : float (optional)
-                - unit weight of soil (kN/m^3)
-                - Only require if c>0 (default=0)
-            H : float (optional)
-                - height of cohesive zone (m)
-                - default = 0
-            beta : float (optional)
-                - angle against vertical of the slope of the wall on the backfill side (degrees)
-            i : float (optional)
-                - angle with horizontal backfill slope (degrees)
-                - default = 0
-            q : str (optional)
-                - surcharge (kPa)
-            hvRatio : float (optional)
-                - ratio of ha to hv 
-                - default = 0
-            delta : float (optional)
-                - friction angle between soil and wall (degrees)
-                - default = (2/3)*phi
-            
-        Returns
-        -------
-            Kae : float
-                - active earth pressure coeffient associated with the governing failure surface angle
-            alphaFa : float
-                - governing failure surface angle for the active case (degrees)
-            Kpe : float
-                - active earth pressure coeffient associated with the governing failure surface angle
-            alphaFp : float
-                - governing failure surface angle for the active case (degrees)
-            theta : float
-                - orientation of the applied acceleration field with respect to horizontal (degrees)
+----------
+    phi : float
+        - effective friction angle (degrees)
+    c : float
+        - cohesion (kPa)
+    PGA : float
+        - peak ground acceleration (g)
+    gamma : float (optional)
+        - unit weight of soil (kN/m^3)
+        - Only require if c>0 (default=0)
+    H : float (optional)
+        - height of cohesive zone (m)
+        - default = 0
+    beta : float (optional)
+        - angle against vertical of the slope of the wall on the backfill side (degrees)
+    i : float (optional)
+        - angle with horizontal backfill slope (degrees)
+        - default = 0
+    q : str (optional)
+        - surcharge (kPa)
+    hvRatio : float (optional)
+        - ratio of ha to hv 
+        - default = 0
+    delta : float (optional)
+        - friction angle between soil and wall (degrees)
+        - default = (2/3)*phi
+    
+Returns
+-------
+    Kae : float
+        - active earth pressure coeffient associated with the governing failure surface angle
+    alphaFa : float
+        - governing failure surface angle for the active case (degrees)
+    Kpe : float
+        - active earth pressure coeffient associated with the governing failure surface angle
+    alphaFp : float
+        - governing failure surface angle for the active case (degrees)
+    theta : float
+        - orientation of the applied acceleration field with respect to horizontal (degrees)
 """
 
 
 
-def Kae(phi, c, PGA, gamma=0, H=0, beta = 0, i = 0, q = 0, hvRatio = 0, delta = 0):
+def wall_pressure_coefficients(phi, c, PGA, gamma=0, H=0, beta = 0, i = 0, q = 0, hvRatio = 0, delta = 0):
     
     # Import libraries
     import numpy as np
